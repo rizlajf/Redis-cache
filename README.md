@@ -17,3 +17,5 @@ redis 127.0.0.1:6379> KEYS *
 redis 127.0.0.1:6379> GET foo
 "bar"
 redis 127.0.0.1:6379>
+
+Reference : https://github.com/ServiceStack/redis-windows
