@@ -33,6 +33,11 @@ namespace Redi_Cache.Controllers
             string b = _cache.GetString("foo");
             return string.Format("{0},{1}", a, b);
             //return "value";
+            //ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisCacheConnection);
+            //IEnumerable<RedisKey> keys = connection.GetServer(redisServerLocation).Keys();
+            //RedisKey key = keys.FirstOrDefault(k =>k.ToString().Contains("") && k.ToString().Contains(""));
+            //string newkey = key.ToString().Substring(6); // Remove instance name from the key and generate key string in this case "master"
+            //return await _cache.GetStringAsync(newkey);
         }
 
         // POST api/values
