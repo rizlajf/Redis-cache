@@ -12,7 +12,16 @@ namespace Redi_Cache
         {
             Configuration = configuration;
         }
-
+ //       public Startup(IHostingEnvironment env)
+//        {
+//            IConfigurationBuilder builder = new ConfigurationBuilder()
+//                .SetBasePath(env.ContentRootPath)
+//                .AddJsonFile("appsettings.json", false, true)
+//                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
+//                .AddServiceFabricConfig("Config") // Add Service Fabric configuration settings.
+//                .AddEnvironmentVariables();
+//            Configuration = builder.Build();
+//        }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -21,7 +30,7 @@ namespace Redi_Cache
             services.AddDistributedRedisCache(options =>
             {
                 options.InstanceName = "master";
-                options.Configuration = "localhost";
+                options.Configuration = "localhost"; //Configuration.GetSection("Appsettings:ConnectionString").Value
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
